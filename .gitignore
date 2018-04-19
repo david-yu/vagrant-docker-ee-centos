@@ -1,0 +1,11 @@
+.vagrant
+*.vdi
+*.log
+env/*
+*.lic
+*.pem
+*.tar
+Jenkinsfile*
+id_rsa
+id_rsa.pub
+env.sh
