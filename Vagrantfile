@@ -110,7 +110,9 @@ Vagrant.configure(2) do |config|
         vb.name = "ubuntu-ucp-node3"
       end
       centos_ucp_node3.vm.provision "shell", inline: <<-SHELL
-        sudo yum install -y ntpdate jq
+        sudo yum install -y ntpdate
+        sudo yum install -y epel-release
+        sudo yum install -y jq
         sudo ntpdate -s time.nist.gov
         sudo cp /vagrant/scripts/install_ee.sh .
         sudo cp /vagrant/scripts/join_manager.sh .
@@ -140,7 +142,9 @@ Vagrant.configure(2) do |config|
         vb.name = "ubuntu-dtr-node1"
       end
       centos_dtr_node1.vm.provision "shell", inline: <<-SHELL
-        sudo yum install -y ntpdate jq
+        sudo yum install -y ntpdate
+        sudo yum install -y epel-release
+        sudo yum install -y jq
         sudo ntpdate -s time.nist.gov
         sudo cp /vagrant/scripts/install_ee.sh .
         sudo cp /vagrant/scripts/join_worker.sh .
@@ -180,8 +184,9 @@ Vagrant.configure(2) do |config|
         vb.name = "centos-worker-node1"
       end
       centos_worker_node1.vm.provision "shell", inline: <<-SHELL
-        sudo apt-get update
-        sudo apt-get install -y apt-transport-https ca-certificates ntpdate
+        sudo yum install -y ntpdate
+        sudo yum install -y epel-release
+        sudo yum install -y jq
         sudo ntpdate -s time.nist.gov
         sudo cp /vagrant/scripts/install_ee.sh .
         sudo cp /vagrant/scripts/join_worker.sh .
@@ -210,8 +215,9 @@ Vagrant.configure(2) do |config|
         vb.name = "centos-worker-node2"
       end
       centos_worker_node2.vm.provision "shell", inline: <<-SHELL
-        sudo apt-get update
-        sudo apt-get install -y apt-transport-https ca-certificates ntpdate
+        sudo yum install -y ntpdate
+        sudo yum install -y epel-release
+        sudo yum install -y jq
         sudo ntpdate -s time.nist.gov
         sudo cp /vagrant/scripts/install_ee.sh .
         sudo cp /vagrant/scripts/join_worker.sh .
@@ -236,8 +242,9 @@ Vagrant.configure(2) do |config|
         vb.name = "gitlab-node"
       end
       gitlab_node.vm.provision "shell", inline: <<-SHELL
-        sudo apt-get update
-        sudo apt-get install -y apt-transport-https ca-certificates ntpdate
+        sudo yum install -y ntpdate
+        sudo yum install -y epel-release
+        sudo yum install -y jq
         sudo ntpdate -s time.nist.gov
         sudo cp /vagrant/scripts/install_gitlab.sh .
         sudo cp /vagrant/scripts/configure_gitlab.sh .
@@ -263,7 +270,10 @@ Vagrant.configure(2) do |config|
         vb.name = "jenkins-node"
       end
       jenkins_node.vm.provision "shell", inline: <<-SHELL
-        sudo yum install -y ntpdate jqu nzip
+        sudo yum install -y ntpdate
+        sudo yum install -y epel-release
+        sudo yum install -y jq unzip
+        sudo ntpdate -s time.nist.gov
         sudo ntpdate -s time.nist.gov
         sudo cp /vagrant/scripts/install_ee.sh .
         sudo cp /vagrant/scripts/join_worker.sh .
