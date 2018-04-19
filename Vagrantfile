@@ -28,6 +28,7 @@ Vagrant.configure(2) do |config|
       centos_ucp_node1.landrush.guest_redirect_dns = false
       centos_ucp_node1.landrush.upstream '8.8.8.8'
       centos_ucp_node1.landrush.upstream '8.8.4.4'
+      config.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: ".git/"
       config.vm.provider :virtualbox do |vb|
         vb.customize ["modifyvm", :id, "--memory", "2560"]
         vb.customize ["modifyvm", :id, "--cpus", "2"]

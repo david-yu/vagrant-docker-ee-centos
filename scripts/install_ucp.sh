@@ -19,8 +19,8 @@ else
 fi
 
 # Gather Swarm Tokens and UCP cluster id
-docker swarm join-token manager | awk -F " " '/token/ {print $5}' > /vagrant/env/swarm-join-token-mgr
-docker swarm join-token worker | awk -F " " '/token/ {print $5}' > /vagrant/env/swarm-join-token-worker
+sudo -E sh -c 'docker swarm join-token manager -q > /vagrant/env/swarm-join-token-mgr'
+sudo -E sh -c 'sudo docker swarm join-token worker -q > /vagrant/env/swarm-join-token-worker'
 docker run --rm --name ucp -v /var/run/docker.sock:/var/run/docker.sock docker/ucp:${UCP_VERSION} id | awk '{ print $1}' > /vagrant/env/ucp-id
 export UCP_ID=$(cat /vagrant/env/ucp-id)
 
