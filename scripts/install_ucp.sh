@@ -1,7 +1,7 @@
 #!/bin/bash
 export UCP_VERSION=3.0.0
 
-ip -o -4 addr list eth1 | awk '{print $4}' | cut -d/ -f1 > /vagrant/env/ucp-node1-ipaddr
+ip -o -4 addr list enp0s8 | awk '{print $4}' | cut -d/ -f1 > /vagrant/env/ucp-node1-ipaddr
 export UCP_IPADDR=$(cat /vagrant/env/ucp-node1-ipaddr)
 export UCP_USERNAME=$(cat /vagrant/env/ucp_username)
 export UCP_FQDN=ucp.local

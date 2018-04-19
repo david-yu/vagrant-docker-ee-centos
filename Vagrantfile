@@ -15,7 +15,7 @@ Vagrant.configure(2) do |config|
 
     # Docker EE node for CentOS 7.4
     config.vm.define "ucp" do |centos_ucp_node1|
-      centos_ucp_node1.vm.box = "centos/7"
+      centos_ucp_node1.vm.box = "bento/centos-7.4"
       centos_ucp_node1.vm.network "private_network", ip: "172.28.128.31"
       centos_ucp_node1.landrush.tld = 'local'
       centos_ucp_node1.vm.hostname = "ucp.local"
@@ -28,7 +28,6 @@ Vagrant.configure(2) do |config|
       centos_ucp_node1.landrush.guest_redirect_dns = false
       centos_ucp_node1.landrush.upstream '8.8.8.8'
       centos_ucp_node1.landrush.upstream '8.8.4.4'
-      config.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: ".git/"
       config.vm.provider :virtualbox do |vb|
         vb.customize ["modifyvm", :id, "--memory", "2560"]
         vb.customize ["modifyvm", :id, "--cpus", "2"]
@@ -66,7 +65,7 @@ Vagrant.configure(2) do |config|
 
     # Docker EE manager node for CentOS 7.4 (optional)
     config.vm.define "ucp-node2" do |centos_ucp_node2|
-      centos_ucp_node2.vm.box = "centos/7"
+      centos_ucp_node2.vm.box = "bento/centos-7.4"
       centos_ucp_node2.vm.network "private_network", ip: "172.28.128.32"
       centos_ucp_node2.landrush.tld = 'local'
       centos_ucp_node2.vm.hostname = "ucp-node2.local"
@@ -95,7 +94,7 @@ Vagrant.configure(2) do |config|
 
     # Docker EE manager node for CentOS 7.4 (optional)
     config.vm.define "ucp-node3" do |centos_ucp_node3|
-      centos_ucp_node3.vm.box = "centos/7"
+      centos_ucp_node3.vm.box = "bento/centos-7.4"
       centos_ucp_node3.vm.network "private_network", ip: "172.28.128.33"
       centos_ucp_node3.landrush.tld = 'local'
       centos_ucp_node3.vm.hostname = "ucp-node3.local"
@@ -124,7 +123,7 @@ Vagrant.configure(2) do |config|
 
     # Docker EE DTR node for CentOS 7.4
     config.vm.define "dtr" do |centos_dtr_node1|
-      centos_dtr_node1.vm.box = "centos/7"
+      centos_dtr_node1.vm.box = "bento/centos-7.4"
       centos_dtr_node1.vm.network "private_network", ip: "172.28.128.34"
       centos_dtr_node1.landrush.tld = 'local'
       centos_dtr_node1.vm.hostname = "dtr.local"
@@ -165,7 +164,7 @@ Vagrant.configure(2) do |config|
 
     # Docker EE node for CentOS 7.4
     config.vm.define "worker-node1" do |centos_worker_node1|
-      centos_worker_node1.vm.box = "centos/7"
+      centos_worker_node1.vm.box = "bento/centos-7.4"
       centos_worker_node1.vm.network "private_network", ip: "172.28.128.35"
       centos_worker_node1.landrush.tld = 'local'
       centos_worker_node1.vm.hostname = "worker-node1.local"
@@ -195,7 +194,7 @@ Vagrant.configure(2) do |config|
 
     # Docker EE node for CentOS 7.4
     config.vm.define "worker-node2" do |centos_worker_node2|
-      centos_worker_node2.vm.box = "centos/7"
+      centos_worker_node2.vm.box = "bento/centos-7.4"
       centos_worker_node2.vm.network "private_network", ip: "172.28.128.36"
       centos_worker_node2.landrush.tld = 'local'
       centos_worker_node2.vm.hostname = "worker-node2.local"
@@ -251,7 +250,7 @@ Vagrant.configure(2) do |config|
 
     # Jenkins node for CentOS 7.4
     config.vm.define "jenkins" do |jenkins_node|
-      jenkins_node.vm.box = "centos/7"
+      jenkins_node.vm.box = "bento/centos-7.4"
       jenkins_node.vm.network "private_network", ip: "172.28.128.38"
       jenkins_node.landrush.tld = 'local'
       jenkins_node.vm.hostname = "jenkins-node.local"
